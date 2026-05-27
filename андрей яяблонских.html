@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семья Яблонских ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 50%, #ce93d8 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            color: #3e2723;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 60px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08),
+                0 10px 20px rgba(0, 0, 0, 0.04);
+            margin: 20px 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #6a1b9a;
+            text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.8);
+            letter-spacing: 2px;
+            word-break: break-word;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .header h1 span {
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #4a148c;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 40px;
+            letter-spacing: 1px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 35px;
+            padding: 35px 30px;
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.06),
+                0 6px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(156, 39, 176, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(106, 27, 154, 0.4);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(186, 104, 200, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .card-icon {
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+            background: #f3e5f5;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4a148c;
+            margin: 10px 0 5px;
+            letter-spacing: 1px;
+        }
+
+        .card .age {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #6a1b9a;
+            background: #f3e5f5;
+            padding: 5px 18px;
+            border-radius: 25px;
+            margin: 8px 0 12px;
+            display: inline-block;
+        }
+
+        .card .detail {
+            font-size: 1.25rem;
+            color: #4e342e;
+            font-weight: 500;
+            background: #faf5ff;
+            padding: 12px 22px;
+            border-radius: 50px;
+            margin: 8px 0;
+            width: 100%;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card .detail .emoji-big {
+            font-size: 1.8rem;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #7b1fa2;
+        }
+
+        .toy-bounce {
+            display: inline-block;
+            animation: bounce 0.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+
+        .pet-info {
+            font-size: 1.15rem;
+            color: #5d4037;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #e1bee7;
+            margin: 20px 0;
+            width: 80%;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 750px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .container {
+                padding: 30px 20px;
+                border-radius: 40px;
+            }
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .card h2 {
+                font-size: 1.9rem;
+            }
+            .card-icon {
+                font-size: 4rem;
+                width: 85px;
+                height: 85px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+                padding: 8px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>✨</span> Семья Яблонских <span>✨</span>
+            </h1>
+            <div class="subtitle">Тепло, любовь и чуть-чуть волшебства</div>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Карточка Андрей -->
+            <div class="card">
+                <div class="card-icon">🧒🎓</div>
+                <h2>Андрей</h2>
+                <span class="age">10 лет</span>
+                <div class="detail">
+                    <span class="emoji-big">🏛️</span> 
+                    <span>Мечта: <span class="highlight">Поступить в московский университет</span></span>
+                </div>
+                <hr>
+            </div>
+
+            <!-- Карточка Мама -->
+            <div class="card">
+                <div class="card-icon">👩‍👦🔍</div>
+                <h2>Наталья</h2>
+                <span class="age">47 лет</span>
+                <div class="detail">
+                    <span class="emoji-big">🗝️</span> 
+                    <span>Суперспособность: <span class="highlight">Находить потерянные вещи</span></span>
+                </div>
+                <hr>
+            </div>
+
+            <!-- Карточка Папа -->
+            <div class="card">
+                <div class="card-icon">👨‍👦🤝</div>
+                <h2>Анатолий</h2>
+                <span class="age">44 года</span>
+                <div class="detail">
+                    <span class="emoji-big">💬</span> 
+                    <span>Суперспособность: <span class="highlight">Находить общий язык со всеми</span></span>
+                </div>
+                <hr>
+            </div>
+
+            <!-- Карточка Кошка Тиффани -->
+            <div class="card">
+                <div class="card-icon">🐱✨</div>
+                <h2>Тиффани</h2>
+                <span class="age">4 года</span>
+                <div class="detail">
+                    <span class="emoji-big">⚽</span> 
+                    <span>Любимая игрушка: <span class="highlight toy-bounce">попрыгунчик</span></span>
+                </div>
+                <div class="pet-info">
+                    Порода: Абиссинская кошка
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
